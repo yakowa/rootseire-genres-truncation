@@ -69,7 +69,6 @@ d3.csv('https://raw.githubusercontent.com/rootseire/survey/main/treemap-data.csv
         .text(function (d) { return d.data.name + ' (' + d.data.value + ')' })
         .attr("font-size", "15px")
         .attr("fill", "black")
-        .each(slice);
 })
 
 
@@ -85,30 +84,6 @@ d3.selectAll('.label')
         return Math.max(0, 100 - this.textLength.baseVal.value);
     });
 
-
-function slice(d) {
-    var self = d3.select(this),
-        textLength = self.node().getComputedTextLength(),
-        thisWidth = this.getComputedTextLength(),
-        text = self.text(),
-        bbox = this.getBBox(),
-        textWidth = thisWidth; //this is the width of the text only
-
-    //const 
-    const elements = bbox.width;
-    const rectWidths = self.node().getBoundingClientRect().width;
-
-
-    // console.log("text width is: " + textWidth + " and rect " + rectWidths + " for " + d.data.name);
-
-
-    //while (textWidth > rectWidths && textWidth > 0) { 
-
-    // text = text.slice(0, 4);
-    // self.text(text + '...');
-    // textLength = self.node().getComputedTextLength();
-    // } 
-}
 
 
 function calcAllBoxWidths() {
